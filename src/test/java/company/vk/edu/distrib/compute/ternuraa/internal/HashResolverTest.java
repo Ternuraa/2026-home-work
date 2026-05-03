@@ -1,5 +1,7 @@
 package company.vk.edu.distrib.compute.ternuraa.internal;
 
+import company.vk.edu.distrib.compute.ternuraa.BucketId;
+import company.vk.edu.distrib.compute.ternuraa.HashResolver;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;

@@ -1,5 +1,8 @@
 package company.vk.edu.distrib.compute.ternuraa.internal;
 
+import company.vk.edu.distrib.compute.ternuraa.BucketRecord;
+import company.vk.edu.distrib.compute.ternuraa.BucketStorage;
+import company.vk.edu.distrib.compute.ternuraa.RecordCodec;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 

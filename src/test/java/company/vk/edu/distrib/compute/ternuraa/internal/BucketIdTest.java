@@ -1,5 +1,6 @@
 package company.vk.edu.distrib.compute.ternuraa.internal;
 
+import company.vk.edu.distrib.compute.ternuraa.BucketId;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
