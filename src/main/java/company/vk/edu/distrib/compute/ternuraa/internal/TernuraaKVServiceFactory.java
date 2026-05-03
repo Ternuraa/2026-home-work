@@ -10,9 +10,8 @@ public class TernuraaKVServiceFactory extends KVServiceFactory {
 
     @Override
     protected KVService doCreate(int port) throws IOException {
-
         Dao<byte[]> dao = new TernuraaDao(Paths.get("data"));
 
-        return new TernuraaKVService(port, dao);
+        return new TernuraaKVService(dao);
     }
 }
