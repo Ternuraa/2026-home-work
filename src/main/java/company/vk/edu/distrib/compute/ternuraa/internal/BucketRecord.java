@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:src/main/java/company/vk/edu/distrib/compute/ternuraa/BucketRecord.java
-package company.vk.edu.distrib.compute.ternuraa;
-========
+
 package company.vk.edu.distrib.compute.ternuraa.internal;
->>>>>>>> 80e327893ed0dbb61501bd89cd1e5c4ac0a974f6:src/main/java/company/vk/edu/distrib/compute/ternuraa/internal/BucketRecord.java
 
 import java.util.Arrays;
 
