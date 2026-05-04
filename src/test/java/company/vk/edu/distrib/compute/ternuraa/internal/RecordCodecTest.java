@@ -1,5 +1,7 @@
 package company.vk.edu.distrib.compute.ternuraa.internal;
 
+import company.vk.edu.distrib.compute.ternuraa.BucketRecord;
+import company.vk.edu.distrib.compute.ternuraa.RecordCodec;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

@@ -1,5 +1,7 @@
 package company.vk.edu.distrib.compute.ternuraa.internal;
 
+import company.vk.edu.distrib.compute.ternuraa.BucketId;
+import company.vk.edu.distrib.compute.ternuraa.PathResolver;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;

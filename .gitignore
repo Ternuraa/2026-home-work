@@ -30,3 +30,6 @@ build/
 
 .idea/
 out/
+
+wrk2/
+.data/
