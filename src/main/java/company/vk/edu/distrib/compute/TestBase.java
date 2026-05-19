@@ -14,12 +14,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Contains utility methods for unit tests.
- *
  */
 abstract class TestBase {
     private static final int VALUE_LENGTH = 1024;
 
     public static final Duration TIMEOUT = Duration.ofSeconds(5);
+
+    // Добавляем статичный клиент по умолчанию для реализации метода ниже
+    private static final HttpClient DEFAULT_HTTP_CLIENT = HttpClient.newHttpClient();
 
     static int randomPort() {
         final var port = ThreadLocalRandom.current().nextInt(10000, 60000);
@@ -71,7 +73,10 @@ abstract class TestBase {
         return endpoint + "/v0/entity?id=" + id + "&ack=" + ack;
     }
 
-    protected abstract HttpClient getHttpClient();
+    // ИСПРАВЛЕНИЕ: метод больше не abstract, есть реализация по умолчанию
+    protected HttpClient getHttpClient() {
+        return DEFAULT_HTTP_CLIENT;
+    }
 
     protected HttpResponse<byte[]> get(String endpoint, String key)
             throws IOException, URISyntaxException, InterruptedException {
@@ -90,7 +95,7 @@ abstract class TestBase {
 
     protected HttpResponse<Void> delete(String endpoint, String key)
             throws IOException, URISyntaxException, InterruptedException {
-       return delete(endpoint, key, null);
+        return delete(endpoint, key, null);
     }
 
     protected HttpResponse<Void> delete(String endpoint, String key, Integer ack)
