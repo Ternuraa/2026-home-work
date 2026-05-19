@@ -1,9 +1,9 @@
 package company.vk.edu.distrib.compute;
 
-import company.vk.edu.distrib.compute.ternuraa.ternurraKafka.AuditEvent;
-import company.vk.edu.distrib.compute.ternuraa.ternurraKafka.AuditService;
-import company.vk.edu.distrib.compute.ternuraa.ternurraKafka.AuditServiceFactory;
-import company.vk.edu.distrib.compute.ternuraa.ternurraKafka.AuditableKVService;
+import company.vk.edu.distrib.compute.ternuraa.kafka.AuditEvent;
+import company.vk.edu.distrib.compute.ternuraa.kafka.AuditService;
+import company.vk.edu.distrib.compute.ternuraa.kafka.AuditServiceFactory;
+import company.vk.edu.distrib.compute.ternuraa.kafka.AuditableKVService;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

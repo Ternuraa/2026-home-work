@@ -1,4 +1,4 @@
-package company.vk.edu.distrib.compute.ternuraa.ternurraKafka;
+package company.vk.edu.distrib.compute.ternuraa.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import company.vk.edu.distrib.compute.Dao;

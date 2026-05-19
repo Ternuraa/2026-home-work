@@ -1,6 +1,6 @@
 package company.vk.edu.distrib.compute;
 
-import company.vk.edu.distrib.compute.ternuraa.ternurraKafka.AuditServiceFactory;
+import company.vk.edu.distrib.compute.ternuraa.kafka.AuditServiceFactory;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.extension.ExtensionContext;

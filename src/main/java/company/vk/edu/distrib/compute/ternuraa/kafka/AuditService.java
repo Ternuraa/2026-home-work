@@ -1,4 +1,4 @@
-package company.vk.edu.distrib.compute.ternuraa.ternurraKafka;
+package company.vk.edu.distrib.compute.ternuraa.kafka;
 
 import java.util.List;
 

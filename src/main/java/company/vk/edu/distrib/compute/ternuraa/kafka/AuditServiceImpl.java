@@ -1,14 +1,27 @@
-package company.vk.edu.distrib.compute.ternuraa.ternurraKafka;
+package company.vk.edu.distrib.compute.ternuraa.kafka;
 
-import org.apache.kafka.clients.consumer.*;
-import org.apache.kafka.common.serialization.StringDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * Implementation of Audit Service.
+ */
 public class AuditServiceImpl implements AuditService {
+    private static final Logger log = LoggerFactory.getLogger(AuditServiceImpl.class);
+
     private final String bootstrapServers;
     private final ObjectMapper mapper = new ObjectMapper();
     private final List<AuditEvent> auditLog = new CopyOnWriteArrayList<>();
@@ -24,9 +37,13 @@ public class AuditServiceImpl implements AuditService {
         start("default-group");
     }
 
-    // Этот метод не обязательно должен быть @Override, если его нет в интерфейсе AuditService
+    /**
+     * Starts the audit consumer with a specific group id.
+     */
     public void start(String consumerGroupId) {
-        if (running.getAndSet(true)) return;
+        if (running.getAndSet(true)) {
+            return;
+        }
 
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -45,7 +62,9 @@ public class AuditServiceImpl implements AuditService {
                     }
                 }
             } catch (Exception e) {
-                if (running.get()) e.printStackTrace();
+                if (running.get()) {
+                    log.error("Exception in audit consumer thread", e);
+                }
             }
         });
         consumerThread.start();
@@ -54,7 +73,9 @@ public class AuditServiceImpl implements AuditService {
     @Override
     public void stop() {
         running.set(false);
-        if (consumerThread != null) consumerThread.interrupt();
+        if (consumerThread != null) {
+            consumerThread.interrupt();
+        }
     }
 
     @Override

@@ -1,26 +1,25 @@
 package company.vk.edu.distrib.compute;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Contains utility methods for unit tests.
  */
-abstract class TestBase {
+public abstract class TestBase {
     private static final int VALUE_LENGTH = 1024;
 
     public static final Duration TIMEOUT = Duration.ofSeconds(5);
 
-    // Добавляем статичный клиент по умолчанию для реализации метода ниже
     private static final HttpClient DEFAULT_HTTP_CLIENT = HttpClient.newHttpClient();
 
     static int randomPort() {
@@ -34,7 +33,8 @@ abstract class TestBase {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                throw new IllegalStateException("Interrupted while looking for available port");
+                Thread.currentThread().interrupt();
+                throw new IllegalStateException("Interrupted while looking for available port", e);
             }
         }
         throw new IllegalStateException("Can't find available port");
@@ -69,11 +69,12 @@ abstract class TestBase {
     }
 
     static String url(String endpoint, String id, Integer ack) {
-        if (ack == null) return url(endpoint, id);
+        if (ack == null) {
+            return url(endpoint, id);
+        }
         return endpoint + "/v0/entity?id=" + id + "&ack=" + ack;
     }
 
-    // ИСПРАВЛЕНИЕ: метод больше не abstract, есть реализация по умолчанию
     protected HttpClient getHttpClient() {
         return DEFAULT_HTTP_CLIENT;
     }
