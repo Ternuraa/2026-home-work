@@ -1,6 +1,5 @@
 package company.vk.edu.distrib.compute;
 
-
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;

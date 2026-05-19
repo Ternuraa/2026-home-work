@@ -1,4 +1,4 @@
-package company.vk.edu.distrib.compute.ternuraa.kafka;
+package company.vk.edu.distrib.compute.ternuraa.ternurraKafka;
 
 import java.io.IOException;
 
