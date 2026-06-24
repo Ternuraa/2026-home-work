@@ -76,4 +76,6 @@
         </properties>
     </rule>
 
+    <exclude-pattern>.*/build/generated/.*</exclude-pattern>
+
 </ruleset>

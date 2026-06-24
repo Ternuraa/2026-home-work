@@ -31,6 +31,11 @@ class StartStopTest extends TestBase {
     @Parameter
     KVServiceFactory kvServiceFactory;
 
+    @Override
+    protected HttpClient getHttpClient() {
+        return httpClient;
+    }
+
     @AfterAll
     public static void afterAll() {
         httpClient.close();

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package company.vk.edu.distrib.compute.ternuraa.grpc;
+
+option java_multiple_files = true;
+option java_package = "company.vk.edu.distrib.compute.ternuraa.grpc";
+
+service InternalKv {
+  rpc GetEntity(GetEntityRequest) returns (EntityResponse);
+  rpc PutEntity(PutEntityRequest) returns (EntityResponse);
+  rpc DeleteEntity(DeleteEntityRequest) returns (EntityResponse);
+}
+
+message GetEntityRequest {
+  string id = 1;
+}
+
+message PutEntityRequest {
+  string id = 1;
+  bytes value = 2;
+}
+
+message DeleteEntityRequest {
+  string id = 1;
+}
+
+message EntityResponse {
+  int32 status_code = 1;
+  bytes body = 2;
+}
