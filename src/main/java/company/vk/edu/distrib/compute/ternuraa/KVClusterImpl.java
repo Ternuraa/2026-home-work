@@ -6,7 +6,6 @@ import company.vk.edu.distrib.compute.ternuraa.cluster.EndpointUtils;
 import company.vk.edu.distrib.compute.ternuraa.cluster.GrpcInternalClient;
 import company.vk.edu.distrib.compute.ternuraa.cluster.RendezvousSharding;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
