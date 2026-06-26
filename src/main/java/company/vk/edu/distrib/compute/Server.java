@@ -9,9 +9,11 @@ import java.util.List;
 
 public class Server {
 
+    private static final String CLUSTER_ARG = "cluster";
+
     void main(String... args) throws IOException {
         var log = LoggerFactory.getLogger("server");
-        if (args.length > 0 && "cluster".equals(args[0])) {
+        if (args.length > 0 && CLUSTER_ARG.equals(args[0])) {
             runCluster(log);
             return;
         }

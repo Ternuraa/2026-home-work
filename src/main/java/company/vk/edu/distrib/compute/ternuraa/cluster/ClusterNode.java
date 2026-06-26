@@ -105,7 +105,6 @@ public final class ClusterNode implements KVService {
         }
 
         httpServer.stop(0);
-        httpServer = null;
         shutdownGrpcServer();
         started = false;
     }
@@ -123,7 +122,6 @@ public final class ClusterNode implements KVService {
             grpcServer.shutdownNow();
             Thread.currentThread().interrupt();
         }
-        grpcServer = null;
     }
 
     private void createHttpContexts(HttpServer server) {

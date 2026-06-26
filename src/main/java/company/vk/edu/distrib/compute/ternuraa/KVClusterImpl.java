@@ -25,17 +25,15 @@ public final class KVClusterImpl implements KVCluster {
         }
 
         this.grpcClient = new GrpcInternalClient();
-        List<ClusterNode> createdNodes = new ArrayList<>();
-        for (int httpPort : sortedPorts) {
-            createdNodes.add(new ClusterNode(
-                    httpPort,
-                    new InMemoryDao(),
-                    nodeIds,
-                    nodeGrpcPorts,
-                    grpcClient
-            ));
-        }
-        this.nodes = List.copyOf(createdNodes);
+        this.nodes = sortedPorts.stream()
+                .map(httpPort -> new ClusterNode(
+                        httpPort,
+                        new InMemoryDao(),
+                        nodeIds,
+                        nodeGrpcPorts,
+                        grpcClient
+                ))
+                .toList();
     }
 
     @Override
